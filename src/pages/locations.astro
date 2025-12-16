@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = '服務據點';
+---
+
+<BaseLayout title={title} canonicalPath="/locations">
+  <div class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="reveal" style="--d: 0ms;">
+          <h1 class="h-title">服務據點</h1>
+          <p class="h-sub">依照縣市列出凱擘服務據點資訊（地址、電話、服務時間）。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding: 40px 0;">
+      <div class="reveal" style="--d: 80ms;">
+        <div id="locations" class="grid-3" aria-live="polite">
+          <div class="feature">
+            <h3>載入中</h3>
+            <p>正在載入服務據點資料…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function formatServiceHours(serviceHours) {
+      if (!serviceHours || typeof serviceHours !== 'object') return '';
+
+      const order = ['weekday', 'saturday', 'sunday', 'weekend', 'holiday'];
+      const labels = {
+        weekday: '平日',
+        saturday: '週六',
+        sunday: '週日',
+        weekend: '週末',
+        holiday: '國定假日'
+      };
+
+      const entries = order
+        .filter((k) => serviceHours[k] !== undefined)
+        .map((k) => `<div><strong>${labels[k] ?? k}</strong>：${escapeHtml(serviceHours[k])}</div>`);
+
+      if (entries.length === 0) return '';
+
+      return `<div style="margin-top: 14px;" class="small">${entries.join('')}</div>`;
+    }
+
+    async function loadLocations() {
+      const root = document.getElementById('locations');
+      if (!root) return;
+
+      try {
+        const res = await fetch('/address.JSON', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const data = await res.json();
+        const list = Array.isArray(data?.service_locations) ? data.service_locations : [];
+
+        if (list.length === 0) {
+          root.innerHTML = `
+            <div class="feature">
+              <h3>目前沒有資料</h3>
+              <p>找不到可顯示的服務據點。</p>
+            </div>
+          `;
+          return;
+        }
+
+        root.innerHTML = list
+          .map((item) => {
+            const city = escapeHtml(item?.city ?? '');
+            const address = escapeHtml(item?.address ?? '');
+            const phone = String(item?.phone ?? '');
+            const fax = escapeHtml(item?.fax ?? '');
+
+            const phoneDigits = phone.replace(/[^0-9+]/g, '');
+            const phoneHref = phoneDigits ? `tel:${phoneDigits}` : '';
+
+            return `
+              <div class="feature">
+                <h3>${city || '服務據點'}</h3>
+                <p>${address}</p>
+                <p style="margin-top: 12px;">
+                  <strong>電話</strong>：${phoneHref ? `<a href="${phoneHref}">${escapeHtml(phone)}</a>` : escapeHtml(phone)}
+                </p>
+                ${fax ? `<p style="margin-top: 6px;"><strong>傳真</strong>：${fax}</p>` : ''}
+                ${formatServiceHours(item?.service_hours)}
+              </div>
+            `;
+          })
+          .join('');
+      } catch (err) {
+        root.innerHTML = `
+          <div class="feature">
+            <h3>載入失敗</h3>
+            <p>無法載入服務據點資料，請稍後再試。</p>
+          </div>
+        `;
+      }
+    }
+
+    loadLocations();
+  </script>
+</BaseLayout>

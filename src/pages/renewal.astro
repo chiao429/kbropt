@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+
+const title = `續約/合約還沒到｜${SITE.name}`;
+---
+
+<BaseLayout
+  title={title}
+  description="續約、合約還沒到：請撥打 24 小時官方客服專線。"
+  canonicalPath="/renewal"
+>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="reveal">
+          <h1 class="h-title">續約、合約還沒到</h1>
+          <p class="h-sub">依照提供資訊：若要續約、合約尚未到期等相關問題，請直接撥打 24 小時官方客服專線。</p>
+          <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+            <a class="btn btn-primary" href={`tel:${SITE.officialSupportDisplay.replace(/-/g, '')}`}>撥打官方客服：{SITE.officialSupportDisplay}</a>
+            <a class="btn" href={SITE.lineUrl} rel="noopener" target="_blank">加入 LINE（一般諮詢）</a>
+          </div>
+        </div>
+
+        <aside class="card card-pad reveal">
+          <div class="card-title">新申辦入口</div>
+          <div class="cta-stack">
+            <a class="btn btn-primary" href={SITE.phoneTel}>新申辦：{SITE.phoneDisplay}</a>
+            <a class="btn" href={SITE.lineUrl} rel="noopener" target="_blank">請點我加入 LINE</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="reveal">
+        <h2>常見的續約/合約問題</h2>
+        <div class="grid-3">
+          <div class="feature">
+            <h3>合約到期時間</h3>
+            <p>想確認是否到期、是否可續約或調整方案。</p>
+          </div>
+          <div class="feature">
+            <h3>帳務/沒收到帳單</h3>
+            <p>涉及帳務問題建議直接由官方客服協助處理。</p>
+          </div>
+          <div class="feature">
+            <h3>方案異動</h3>
+            <p>希望升速、改裝或加購服務，可先用 LINE 詢問再安排。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

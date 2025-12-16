@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+
+const title = `維修/沒訊號｜${SITE.name}`;
+---
+
+<BaseLayout
+  title={title}
+  description="維修、沒訊號不能看：請撥打 24 小時官方客服專線。"
+  canonicalPath="/repair"
+>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="reveal">
+          <h1 class="h-title">維修、沒訊號不能看</h1>
+          <p class="h-sub">依照提供資訊：若遇到沒訊號、不能看、需要維修等狀況，請直接撥打 24 小時官方客服專線。</p>
+          <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+            <a class="btn btn-primary" href={`tel:${SITE.officialSupportDisplay.replace(/-/g, '')}`}>撥打官方客服：{SITE.officialSupportDisplay}</a>
+            <a class="btn" href={SITE.lineUrl} rel="noopener" target="_blank">加入 LINE（一般諮詢）</a>
+          </div>
+        </div>
+
+        <aside class="card card-pad reveal">
+          <div class="card-title">新申辦入口</div>
+          <div class="cta-stack">
+            <a class="btn btn-primary" href={SITE.phoneTel}>新申辦：{SITE.phoneDisplay}</a>
+            <a class="btn" href={SITE.lineUrl} rel="noopener" target="_blank">請點我加入 LINE</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="reveal">
+        <h2>撥打客服前可先準備</h2>
+        <div class="grid-3">
+          <div class="feature">
+            <h3>問題描述</h3>
+            <p>例如：全頻道無訊號、部分頻道、網路不穩、斷線等。</p>
+          </div>
+          <div class="feature">
+            <h3>所在地</h3>
+            <p>所在縣市/區域與大概地址（不用在網頁公開）。</p>
+          </div>
+          <div class="feature">
+            <h3>可聯絡時間</h3>
+            <p>方便安排檢修或遠端排除。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

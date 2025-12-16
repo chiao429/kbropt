@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+
+const title = SITE.name;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: SITE.name,
+  telephone: SITE.phoneE164,
+  url: Astro.url.origin,
+  sameAs: [SITE.lineUrl]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={SITE.description}
+  canonicalPath="/"
+  jsonLd={jsonLd}
+>
+  <!-- Banner Section -->
+  <section class="banner-section">
+    <div class="banner-container">
+      <div class="banner-slide active">
+        <img src="/banner/banner_1.jpg" alt="光纖上網與有線電視服務" loading="eager" />
+        <div class="banner-overlay">
+          <div class="container">
+            <div class="banner-content">
+              <h2 class="banner-title">光纖上網 · 有線電視</h2>
+              <p class="banner-text">專業網路與電視服務，一站式解決方案</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner-slide">
+        <img src="/banner/banner_2.jpg" alt="優質服務體驗" loading="lazy" />
+        <div class="banner-overlay">
+          <div class="container">
+            <div class="banner-content">
+              <h2 class="banner-title">優質服務體驗</h2>
+              <p class="banner-text">24 小時客服支援，為您提供最佳服務</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner-slide">
+        <picture>
+          <source media="(max-width: 920px)" srcset="/banner/電視_1_mobile.jpg" />
+          <img src="/banner/電視_1.jpg" alt="有線電視服務" loading="lazy" />
+        </picture>
+      </div>
+      <button class="banner-nav banner-prev" aria-label="上一張">‹</button>
+      <button class="banner-nav banner-next" aria-label="下一張">›</button>
+      <div class="banner-dots">
+        <button class="banner-dot active" aria-label="第 1 張"></button>
+        <button class="banner-dot" aria-label="第 2 張"></button>
+        <button class="banner-dot" aria-label="第 3 張"></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="hero">
+      <div class="reveal" style="--d: 0ms;">
+        <h1 class="h-title">光纖上網 ｜ 有線電視</h1>
+        <p class="h-sub">
+          一家人的網路與電視需求，我們協助你一起處理<br/>
+          新申辦找我就對了！提供清楚的方案說明與建議
+        </p>
+
+        <div style="margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href={SITE.phoneTel}>立即撥打 {SITE.phoneDisplay}</a>
+          <a class="btn" href={SITE.lineUrl} rel="noopener" target="_blank">LINE 諮詢</a>
+        </div>
+
+        <div class="other-services">
+          <h3 class="services-title">其他服務：</h3>
+          <div class="services-list">
+            <div class="service-item">帳務或帳單問題</div>
+            <div class="service-item">維修或訊號異常</div>
+            <div class="service-item">續約或合約相關問題</div>
+          </div>
+          <div class="service-contact">
+            請打24小時官方客服專線: <a href="tel:0809006899" class="service-phone">0809-006-899</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding: 40px 0;">
+      <div class="reveal" style="--d: 60ms;">
+        <h2>服務項目</h2>
+        <div class="grid-3">
+          <div class="feature">
+            <h3>新申辦</h3>
+            <p>方案比較、資費確認、快速申辦流程諮詢服務</p>
+            <p style="margin-top: 24px;"><a class="btn" href="/apply">立即申辦</a></p>
+          </div>
+          <div class="feature">
+            <h3>維修服務</h3>
+            <p>訊號異常、設備故障、24 小時緊急維修支援</p>
+            <p style="margin-top: 24px;"><a class="btn" href="/repair">報修處理</a></p>
+          </div>
+          <div class="feature">
+            <h3>續約方案</h3>
+            <p>合約到期、優惠續約、專屬客戶服務方案</p>
+            <p style="margin-top: 24px;"><a class="btn" href="/renewal">續約諮詢</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding: 40px 0;">
+      <div class="reveal" style="--d: 60ms;">
+        <h2>聯絡方式</h2>
+        <div class="grid-3">
+          <div class="feature">
+            <h3>新申辦專線</h3>
+            <p style="margin-top: 16px; font-size: 20px; color: var(--text);"><a href={SITE.phoneTel}>{SITE.phoneDisplay}</a></p>
+          </div>
+          <div class="feature">
+            <h3>LINE 諮詢</h3>
+            <p style="margin-top: 16px;"><a class="btn" href={SITE.lineUrl} rel="noopener" target="_blank">加入 LINE</a></p>
+          </div>
+          <div class="feature">
+            <h3>服務時間</h3>
+            <p style="margin-top: 16px; font-size: 20px; color: var(--text);">週一至週日 24H</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Banner carousel functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelectorAll('.banner-slide');
+      const dots = document.querySelectorAll('.banner-dot');
+      const prevBtn = document.querySelector('.banner-prev');
+      const nextBtn = document.querySelector('.banner-next');
+      let currentSlide = 0;
+      let autoPlayInterval;
+
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+      function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 5000);
+      }
+
+      function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+      }
+
+      // Event listeners
+      nextBtn?.addEventListener('click', () => {
+        nextSlide();
+        stopAutoPlay();
+        startAutoPlay();
+      });
+
+      prevBtn?.addEventListener('click', () => {
+        prevSlide();
+        stopAutoPlay();
+        startAutoPlay();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showSlide(index);
+          stopAutoPlay();
+          startAutoPlay();
+        });
+      });
+
+      // Start auto-play
+      startAutoPlay();
+
+      // Pause on hover
+      const bannerContainer = document.querySelector('.banner-container');
+      bannerContainer?.addEventListener('mouseenter', stopAutoPlay);
+      bannerContainer?.addEventListener('mouseleave', startAutoPlay);
+    });
+  </script>
+</BaseLayout>

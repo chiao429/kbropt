@@ -1,0 +1,140 @@
+{
+  "company": "凱擘股份有限公司",
+  "description": "旗下共12家有線電視系統台，服務近100萬戶，深耕台灣有線電視與寬頻網路市場。",
+  "service_locations": [
+    {
+      "city": "臺北市",
+      "address": "臺北市北投路二段13號5樓",
+      "phone": "02-66060058",
+      "fax": "02-66368886",
+      "service_hours": {
+        "weekday": "09:00-18:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "臺北市",
+      "address": "臺北市八德路二段260號9樓",
+      "phone": "02-66066855",
+      "fax": "02-66368886",
+      "service_hours": {
+        "weekday": "09:00-18:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "臺北市",
+      "address": "臺北市南港區松河街386號1樓",
+      "phone": "02-66015008",
+      "fax": "02-66368886",
+      "service_hours": {
+        "weekday": "09:00-18:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "臺北市",
+      "address": "臺北市中山區八德路二段232號2樓",
+      "phone": "02-66025898",
+      "fax": "02-66368886",
+      "service_hours": {
+        "weekday": "09:00-18:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "新北市",
+      "address": "新北市蘆洲區中山一路12號3樓",
+      "phone": "02-66259889",
+      "fax": "02-66368886",
+      "service_hours": {
+        "weekday": "09:00-18:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "新北市",
+      "address": "新北市新店區中正路37號1樓",
+      "phone": "02-66289838",
+      "fax": "02-66368886",
+      "service_hours": {
+        "weekday": "08:30-19:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "桃園市",
+      "address": "桃園市桃園區大興西路二段65號5樓",
+      "phone": "03-2618968",
+      "fax": "03-3017131",
+      "service_hours": {
+        "weekday": "09:00-18:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "新竹市",
+      "address": "新竹市中華路三段126號2樓",
+      "phone": "03-6129899",
+      "fax": "03-5228741",
+      "service_hours": {
+        "weekday": "08:30-17:30",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "臺中市",
+      "address": "臺中市神岡區東洲路33號",
+      "phone": "04-36021189",
+      "fax": "04-25205255",
+      "service_hours": {
+        "weekday": "08:30-19:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "彰化縣",
+      "address": "彰化縣花壇鄉中山路二段768號",
+      "phone": "04-7005890",
+      "fax": "04-7119496",
+      "service_hours": {
+        "weekday": "08:30-20:00",
+        "weekend": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "臺南市",
+      "address": "臺南市新營區長榮路二段537號",
+      "phone": "06-6026568",
+      "fax": "06-6007856",
+      "service_hours": {
+        "weekday": "08:00-19:00",
+        "saturday": "08:30-12:30",
+        "sunday": "休假",
+        "holiday": "休假"
+      }
+    },
+    {
+      "city": "屏東縣",
+      "address": "屏東市工業路10號1樓",
+      "phone": "08-8106588",
+      "fax": "08-7226089",
+      "service_hours": {
+        "weekday": "08:00-18:30",
+        "saturday": "08:00-17:00",
+        "sunday": "休假",
+        "holiday": "休假"
+      }
+    }
+  ]
+}
