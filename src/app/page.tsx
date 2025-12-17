@@ -21,7 +21,7 @@ export default function HomePage() {
             <p className="h-sub">
               一家人的網路與電視需求，先諮詢再申辦
               <br />
-              交給凱擘大寬頻陳專員為您服務！
+              交給凱擘大寬頻陳玉婷為您服務！
             </p>
 
             <div style={{ marginTop: 48, display: 'flex', gap: 16, flexWrap: 'wrap' }}>

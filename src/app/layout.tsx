@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import '../styles/global.css';
+import ClientInteractions from '../components/ClientInteractions';
 import { NAV, SITE } from '../lib/site';
 
 export const metadata: Metadata = {
@@ -35,8 +36,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 ))}
               </nav>
 
-              <button className="mobile-menu-btn" aria-label="開啟選單" aria-expanded="false">
-                <span className="menu-icon" />
+              <button className="mobile-menu-btn" type="button" aria-label="開啟選單" aria-expanded="false">
+                <span className="hamburger-icon" aria-hidden="true">
+                  <svg className="icon-open" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4 6h16M4 12h16M4 18h16"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <svg className="icon-close" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6 6l12 12M18 6l-12 12"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
               </button>
             </div>
 
@@ -92,80 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </footer>
 
-        <script
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: `
-              const initMobileMenu = () => {
-                const menuBtn = document.querySelector('.mobile-menu-btn');
-                const mobileNav = document.querySelector('.mobile-nav');
-
-                if (menuBtn && mobileNav) {
-                  menuBtn.addEventListener('click', () => {
-                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-                    menuBtn.setAttribute('aria-expanded', String(!isExpanded));
-                    mobileNav.classList.toggle('is-open');
-
-                    if (!isExpanded) {
-                      menuBtn.setAttribute('aria-label', '關閉選單');
-                    } else {
-                      menuBtn.setAttribute('aria-label', '開啟選單');
-                    }
-                  });
-
-                  const mobileLinks = mobileNav.querySelectorAll('a');
-                  mobileLinks.forEach((link) => {
-                    link.addEventListener('click', () => {
-                      menuBtn.setAttribute('aria-expanded', 'false');
-                      menuBtn.setAttribute('aria-label', '開啟選單');
-                      mobileNav.classList.remove('is-open');
-                    });
-                  });
-                }
-              };
-
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initMobileMenu);
-              } else {
-                initMobileMenu();
-              }
-            `
-          }}
-        />
-
-        <script
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: `
-              const initToTop = () => {
-                const toTopBtn = document.querySelector('.to-top');
-                if (!toTopBtn) return;
-
-                const update = () => {
-                  const y = window.scrollY || document.documentElement.scrollTop || 0;
-                  if (y > 420) {
-                    toTopBtn.classList.add('is-show');
-                  } else {
-                    toTopBtn.classList.remove('is-show');
-                  }
-                };
-
-                window.addEventListener('scroll', update, { passive: true });
-                update();
-
-                toTopBtn.addEventListener('click', () => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-              };
-
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initToTop);
-              } else {
-                initToTop();
-              }
-            `
-          }}
-        />
+        <ClientInteractions />
       </body>
     </html>
   );

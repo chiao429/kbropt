@@ -134,6 +134,32 @@ a:hover { text-decoration: none; }
   border-color: var(--brand);
 }
 
+.hamburger-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.hamburger-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.hamburger-icon .icon-close {
+  display: none;
+}
+
+.mobile-menu-btn[aria-expanded="true"] .hamburger-icon .icon-open {
+  display: none;
+}
+
+.mobile-menu-btn[aria-expanded="true"] .hamburger-icon .icon-close {
+  display: block;
+}
+
 .menu-icon {
   position: relative;
   width: 24px;
