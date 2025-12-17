@@ -1506,27 +1506,40 @@ html.js .reveal.is-visible {
 
 .banner-nav {
   position: absolute;
-  top: 50%;
+  top: 65%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
   color: #ffffff;
-  width: 50px;
-  height: 50px;
-  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 300ms ease;
+  transition: opacity 200ms ease, transform 200ms ease, background 200ms ease, border-color 200ms ease;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
+  opacity: 0.35;
+}
+
+.banner-container:hover .banner-nav {
+  opacity: 0.9;
 }
 
 .banner-nav:hover {
-  background: rgba(248, 179, 4, 0.8);
-  border-color: var(--brand);
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.banner-nav:focus-visible {
+  opacity: 1;
+  outline: 3px solid rgba(248, 179, 4, 0.45);
+  outline-offset: 3px;
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .banner-prev {

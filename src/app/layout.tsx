@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `
-              document.addEventListener('DOMContentLoaded', () => {
+              const initMobileMenu = () => {
                 const menuBtn = document.querySelector('.mobile-menu-btn');
                 const mobileNav = document.querySelector('.mobile-nav');
 
@@ -122,7 +122,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     });
                   });
                 }
-              });
+              };
+
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMobileMenu);
+              } else {
+                initMobileMenu();
+              }
             `
           }}
         />
@@ -131,7 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `
-              document.addEventListener('DOMContentLoaded', () => {
+              const initToTop = () => {
                 const toTopBtn = document.querySelector('.to-top');
                 if (!toTopBtn) return;
 
@@ -150,7 +156,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 toTopBtn.addEventListener('click', () => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
-              });
+              };
+
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initToTop);
+              } else {
+                initToTop();
+              }
             `
           }}
         />
