@@ -3,6 +3,7 @@ import Link from 'next/link';
 import '../styles/global.css';
 import ClientInteractions from '../components/ClientInteractions';
 import { NAV, SITE } from '../lib/site';
+import ContactCTA from '../components/ContactCTA';
 
 export const metadata: Metadata = {
   title: SITE.name,
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <main id="main" className="main">
           {children}
+          <ContactCTA />
         </main>
 
         <div className="fab" aria-label="快速聯絡">
@@ -86,17 +88,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <footer className="footer">
-          <div className="container">
+          <div className="container footer__row">
             <div>
-              <strong>{(SITE as any).footerName ?? SITE.name}</strong>
-              <div className="small">
-                新申辦專線：<a href={SITE.phoneTel}>{SITE.phoneDisplay}</a> ｜ 24 小時官方客服：
-                {SITE.officialSupportDisplay}
-              </div>
-              <div className="inline-links">
-                <a href={SITE.lineUrl} rel="noopener" target="_blank">
-                  LINE 聯絡我
-                </a>
+              <Link href="/" className="footer__brand-link">
+                <strong className="footer__gradient">{(SITE as any).footerName ?? SITE.name}</strong>
+              </Link>
+              <div className="small footer__gradient">新申裝專線 0958-257-954</div>
+              <div className="small footer__gradient">24H客服專線 0809-006899</div>
+            </div>
+            <div className="footer__links">
+              <div className="inline-links footer__links-row">
                 <a href={SITE.privacyPolicyUrl} rel="noopener" target="_blank">
                   隱私權政策
                 </a>
@@ -104,11 +105,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   個人資料保護法
                 </a>
               </div>
-              <hr className="sep" />
-              <div className="small">本網站為陳專員個人諮詢服務頁，實際方案內容、資費與合約細節，請以凱擘大寬頻官方網站或簽約文件為準</div>
             </div>
           </div>
         </footer>
+
+        <div className="copyright-bar">
+          <span className="footer__credit">2025 © Designed by JO YANG</span>
+        </div>
 
         <ClientInteractions />
       </body>

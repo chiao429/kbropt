@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 import { SITE } from '../../lib/site';
-import ServiceAreaTable from '../../components/ServiceAreaTable';
+import NetworkPlansPanel from '../../components/NetworkPlansPanel';
 
 export const metadata: Metadata = {
-  title: `新申辦諮詢｜${SITE.name}`,
+  title: `新申辦專案｜${SITE.name}`,
   description:
-    '凱擘大寬頻新申辦諮詢。服務內容：光纖上網、第四台有線電視、數位機上盒、Wi‑Fi 6 升級。服務區域：觀昇、南天、豐盟、新台北。由陳專員提供電話與 LINE 一對一即時諮詢，並可查詢服務區域（有線電視系統台（第四台））與可申辦範圍。'
+    '凱擘大寬頻新申辦諮詢。服務內容：光纖上網、Wi‑Fi 6 升級。服務區域：觀昇、南天、豐盟、新台北。由陳專員提供電話與 LINE 一對一即時諮詢，並可查詢服務區域與可申辦範圍。'
 };
 
 export default function ApplyPage() {
@@ -15,7 +15,7 @@ export default function ApplyPage() {
       <section className="hero">
         <div className="hero-grid">
           <div className="reveal">
-            <h1 className="h-title">新申辦專線與線上諮詢</h1>
+            <h1 className="h-title">新申辦專案</h1>
             <p className="h-sub">想了解家中適合的方案嗎？直接撥打新申辦專線或加入LINE詢問！</p>
             <div className="kpis">
               <div className="kpi">新申辦專線：{SITE.phoneDisplay}</div>
@@ -53,17 +53,9 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="section" aria-label="服務區域">
+      <section className="section" aria-label="網路方案建議">
         <div className="reveal">
-          <div className="apply-area-panel">
-            <div className="apply-area-head">
-              <h2 className="apply-area-title">服務區域</h2>
-              <p className="apply-area-sub">以下為凱擘各有線電視系統台（第四台）服務範圍（以實際可申辦狀況為準）</p>
-            </div>
-            <div className="apply-area-media">
-              <ServiceAreaTable />
-            </div>
-          </div>
+          <NetworkPlansPanel />
         </div>
       </section>
     </div>

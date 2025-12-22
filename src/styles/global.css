@@ -1227,6 +1227,65 @@ a:hover { text-decoration: none; }
   background: linear-gradient(180deg, transparent, rgba(248, 179, 4, 0.02));
 }
 
+.footer strong {
+  display: block;
+  font-size: 20px;
+  color: var(--text);
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+
+.footer .small {
+  font-size: 16px;
+  color: var(--text);
+  letter-spacing: 0.2px;
+  font-weight: 600;
+}
+
+.footer__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.footer__links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.footer__gradient {
+  background: linear-gradient(135deg, #f9b234 0%, #ff7e5f 45%, #f55b63 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.footer__credit {
+  font-size: 8pt;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.1px;
+  text-align: right;
+}
+
+.copyright-bar {
+  padding: 10px 0 16px;
+  text-align: center;
+  color: var(--muted);
+}
+
 .footer a { color: var(--text); transition: color 200ms ease; }
 .footer a:hover { color: var(--brand); }
 
@@ -1503,10 +1562,6 @@ html.js .reveal.is-visible {
   background: linear-gradient(180deg, rgba(2, 159, 214, 0.75) 0%, rgba(0, 0, 0, 0.22) 55%, rgba(248, 179, 4, 0.05) 100%);
 }
 
-.banner-overlay-tv {
-  background: linear-gradient(180deg, rgba(237, 114, 0, 0.70) 0%, rgba(0, 0, 0, 0.22) 55%, rgba(248, 179, 4, 0.08) 100%);
-}
-
 .banner-content {
   max-width: 600px;
   animation: bannerFadeIn 1s ease-out;
@@ -1608,14 +1663,120 @@ html.js .reveal.is-visible {
   transform: scale(1.3);
 }
 
-@keyframes bannerFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* Contact CTA */
+.contact-cta {
+  position: relative;
+  margin: 60px 0 0;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.contact-cta__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/contactUs.jpg'), linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.45));
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+  filter: brightness(0.6);
+}
+
+.contact-cta__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 68px 18px;
+  min-height: 260px;
+}
+
+.contact-cta__card {
+  position: relative;
+  max-width: 520px;
+  padding: 28px 26px;
+  background: rgba(0, 57, 89, 0.8);
+  color: #fff;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.contact-cta__eyebrow {
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin: 0 0 8px;
+  color: #d9f1ff;
+}
+
+.contact-cta__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.contact-cta__body {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.contact-cta__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.contact-cta__btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.contact-cta__btn.primary {
+  background: linear-gradient(135deg, #00c16a, #00a957);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.contact-cta__btn:hover {
+  filter: brightness(1.05);
+}
+
+@media (max-width: 920px) {
+  .contact-cta__container {
+    justify-content: center;
+    padding: 42px 16px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .contact-cta__card {
+    max-width: 100%;
+    padding: 22px 18px;
+  }
+
+  .contact-cta__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .contact-cta__body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .contact-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .contact-cta__btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }
 

@@ -61,18 +61,12 @@ export default function SupportPage() {
               </svg>
             </div>
             <div>
-              <div className="support-card-title">預約 / 合約相關問題</div>
-              <div className="support-card-text">預約裝機、合約、續約或條款疑問，建議由客服協助確認。</div>
+              <div className="support-card-title">合約相關問題</div>
+              <div className="support-card-text">合約、續約或條款疑問，建議由客服協助確認。</div>
             </div>
           </div>
         </div>
 
-        <div className="support-footer" style={{ marginTop: 24 }}>
-          官方客服專線：{' '}
-          <a href="tel:0809006899" className="support-phone">
-            0809-006-899
-          </a>
-        </div>
       </section>
     </div>
   );

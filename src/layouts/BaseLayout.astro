@@ -101,23 +101,46 @@ const jsonLdArray =
 
     <main id="main" class="main">
       <slot />
+      <section class="contact-cta" aria-label="聯繫專員">
+        <div class="contact-cta__bg" aria-hidden="true"></div>
+        <div class="contact-cta__card">
+          <p class="contact-cta__eyebrow">contact us</p>
+          <p class="contact-cta__title">還在煩惱要怎麼選網路嗎？</p>
+          <p class="contact-cta__body">
+            看方案時的訊息已經比完了，但你的網速還卡在第一局嗎？家裡不知道接雙 T 還是社區網路嗎？直接找專員快速確認吧！
+          </p>
+          <p class="contact-cta__body">
+            專業專員手把手幫你評估，這些專業、真人的評估介紹，提供給你合適的方案建議。
+          </p>
+          <div class="contact-cta__actions">
+            <a class="btn contact-cta__btn primary" href={SITE.lineUrl} rel="noopener" target="_blank">線上諮詢</a>
+            <a class="btn contact-cta__btn" href={SITE.phoneTel}>電話專線</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-      <div class="container">
+      <div class="container footer__row">
         <div>
-          <strong>{SITE.name}</strong>
-          <div class="small">新申辦專線：<a href={SITE.phoneTel}>{SITE.phoneDisplay}</a> ｜ 24 小時官方客服：{SITE.officialSupportDisplay}</div>
-          <div class="inline-links">
-            <a href={SITE.lineUrl} rel="noopener" target="_blank">LINE 聯絡我</a>
+          <a class="footer__brand-link" href="/">
+            <strong class="footer__gradient">{SITE.name}</strong>
+          </a>
+          <div class="small footer__gradient">新申裝專線 0958-257-954</div>
+          <div class="small footer__gradient">24H客服專線 0809-006899</div>
+        </div>
+        <div class="footer__links">
+          <div class="inline-links footer__links-row">
             <a href={SITE.privacyPolicyUrl} rel="noopener" target="_blank">隱私權政策</a>
             <a href={SITE.personalDataProtectionUrl} rel="noopener" target="_blank">個人資料保護法</a>
           </div>
-          <hr class="sep" />
-          <div class="small">本網站為靜態資訊頁，提供聯絡與諮詢導引；內容與連結依照提供資訊呈現。</div>
         </div>
       </div>
     </footer>
+
+    <div class="copyright-bar">
+      <span class="footer__credit">2025 © Designed by JO YANG</span>
+    </div>
 
     <script>
       // Mobile menu toggle

@@ -88,7 +88,7 @@ export default function ServiceAreaTable() {
         <thead>
           <tr>
             <th style={{ width: '18%' }}>縣市</th>
-            <th style={{ width: '18%' }}>有線電視系統台（第四台）</th>
+            <th style={{ width: '18%' }}>系統台</th>
             <th>服務範圍</th>
           </tr>
         </thead>

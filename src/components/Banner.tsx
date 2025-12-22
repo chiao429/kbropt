@@ -11,7 +11,7 @@ type Slide =
       overlay?: {
         title: string;
         text: string;
-        variant?: 'default' | 'network' | 'tv';
+        variant?: 'default' | 'network';
       };
     }
   | {
@@ -24,20 +24,14 @@ export default function Banner() {
       {
         type: 'image',
         desktopSrc: '/banner/banner_1.jpg',
-        alt: '光纖上網與有線電視服務',
-        overlay: { title: '光纖上網 · 有線電視', text: '新申辦相關諮詢，由專員協助評估方案並說明申辦流程' }
+        alt: '光纖上網服務',
+        overlay: { title: '光纖上網', text: '新申辦相關諮詢，由專員協助評估方案並說明申辦流程' }
       },
       {
         type: 'image',
         desktopSrc: '/banner/banner_2.jpg',
         alt: '優質服務體驗',
         overlay: { title: '專人服務體驗', text: '不用排隊等客服，由專員協助說明申辦流程與相關事項，提供清楚、即時的諮詢協助' }
-      },
-      {
-        type: 'image',
-        desktopSrc: '/banner/電視_1.jpg',
-        mobileSrc: '/banner/電視_1_mobile.jpg',
-        alt: '有線電視服務'
       }
     ],
     []
@@ -64,9 +58,7 @@ export default function Banner() {
           const overlayClass =
             slide.overlay?.variant === 'network'
               ? 'banner-overlay banner-overlay-network'
-              : slide.overlay?.variant === 'tv'
-                ? 'banner-overlay banner-overlay-tv'
-                : 'banner-overlay';
+              : 'banner-overlay';
 
           return (
             <div key={idx} className={`banner-slide ${isActive ? 'active' : ''}`}>

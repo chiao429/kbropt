@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 
 import { SITE } from '../lib/site';
 import Banner from '../components/Banner';
+import ServiceAreaTable from '../components/ServiceAreaTable';
 
 export const metadata: Metadata = {
   title: SITE.name,
   description:
-    '凱擘大寬頻光纖上網方案與第四台有線電視新申辦諮詢。服務內容：光纖上網、第四台有線電視、數位機上盒、Wi‑Fi 6 升級。服務區域：觀昇、南天、豐盟、新台北。由陳專員一對一協助評估方案、說明申辦流程，提供電話與 LINE 諮詢服務，快速確認服務範圍與最新優惠。'
+    '凱擘大寬頻光纖上網新申辦諮詢。服務內容：光纖上網、Wi‑Fi 6 升級。服務區域：觀昇、南天、豐盟、新台北。由陳專員一對一協助評估方案、說明申辦流程，提供電話與 LINE 諮詢服務，快速確認服務範圍與最新優惠。'
 };
 
 export default function HomePage() {
@@ -17,12 +18,7 @@ export default function HomePage() {
       <div className="container">
         <section className="hero">
           <div className="reveal" style={{ ['--d' as any]: '0ms' }}>
-            <h1 className="h-title">光纖上網 ｜ 有線電視</h1>
-            <p className="h-sub">
-              一家人的網路與電視需求，先諮詢再申辦
-              <br />
-              交給凱擘大寬頻陳玉婷為您服務！
-            </p>
+            <h1 className="h-title">光纖上網</h1>
 
             <div style={{ marginTop: 48, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
               <a className="btn btn-primary" href={SITE.phoneTel}>
@@ -36,54 +32,6 @@ export default function HomePage() {
             <p className="small" style={{ marginTop: 12 }}>
               專人一對一諮詢服務，不用排隊等待客服
             </p>
-          </div>
-        </section>
-
-        {/* 電視區塊 */}
-        <section className="section service-section" aria-label="有線電視服務">
-          <div className="service-block">
-            <div className="service-block-head">
-              <h2 className="service-block-title">數位有線電視</h2>
-              <p className="service-block-sub">智慧科技 極致娛樂</p>
-            </div>
-
-            <div className="service-grid-2">
-              <div className="service-card">
-                <div className="service-card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="4" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="2" />
-                    <path d="M8 21h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M12 17v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="service-card-title">多元頻道</div>
-                  <div className="service-card-subtitle">精彩隨你選</div>
-                  <ul className="service-card-list">
-                    <li>電影、新聞、綜藝、親子，超過200台頻道盡情挑選</li>
-                    <li>搭配A1 Box智慧電視盒，OTT影音服務，體驗再升級</li>
-                    <li>全新頻道編排，同類型節目一鍵直達，觀影更省時！</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="service-card">
-                <div className="service-card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9z" stroke="currentColor" strokeWidth="2" />
-                    <path d="M12 8v4l2.5 2.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="service-card-title">貼心服務超有感</div>
-                  <div className="service-card-subtitle">專業服務快速到府</div>
-                  <ul className="service-card-list">
-                    <li>多年在地深耕經營</li>
-                    <li>提供數位服務、有線電視、光纖上網等多元加值服務</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -149,14 +97,27 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section" aria-label="快速入口">
-          <div className="home-actions">
-            <a className="btn btn-lg" href="/apply">
-              新申辦方案說明
-            </a>
-            <a className="btn btn-lg" href="/locations">
-              查詢服務據點
-            </a>
+        <section className="section" aria-label="服務區域">
+          <div className="reveal">
+            <div className="apply-area-panel">
+              <div className="apply-area-head">
+                <h2 className="apply-area-title">服務區域</h2>
+                <p className="apply-area-sub">以下為凱擘各系統台服務範圍（以實際可申辦狀況為準）</p>
+              </div>
+              <div className="apply-area-media">
+                <ServiceAreaTable />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" aria-label="新申辦">
+          <div className="reveal">
+            <div className="home-actions">
+              <a className="btn btn-lg" href="/apply">
+                新申辦
+              </a>
+            </div>
           </div>
         </section>
       </div>
