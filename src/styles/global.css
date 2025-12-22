@@ -1244,9 +1244,10 @@ a:hover { text-decoration: none; }
 
 .footer__row {
   display: flex;
+  flex-direction: row;
+  align-items: stretch;
   justify-content: space-between;
   gap: 24px;
-  align-items: flex-start;
 }
 
 .footer__links {
@@ -1254,18 +1255,34 @@ a:hover { text-decoration: none; }
   flex-direction: column;
   align-items: flex-end;
   gap: 6px;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.footer__links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
 }
 
 .footer__brand {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 10px;
+  gap: 14px;
   align-items: center;
 }
 
+.footer__brand--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
 .footer__brand-logo {
-  width: 48px;
-  height: auto;
+  height: 40px;
+  width: auto;
   filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
 }
 

@@ -89,15 +89,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="footer">
           <div className="container footer__row">
-            <div className="footer__brand">
+            <div className="footer__brand footer__brand--stacked">
               <img src="/logo-kbro.svg" alt="凱擘 kbro" className="footer__brand-logo" loading="lazy" />
-              <div>
-                <Link href="/" className="footer__brand-link">
-                  <strong className="footer__gradient">{(SITE as any).footerName ?? SITE.name}</strong>
-                </Link>
-                <div className="small footer__gradient">新申裝專線 0958-257-954</div>
-                <div className="small footer__gradient">24H客服專線 0809-006899</div>
-              </div>
+              <Link href="/" className="footer__brand-link">
+                <strong className="footer__gradient">{(SITE as any).footerName ?? SITE.name}</strong>
+              </Link>
+              <div className="small footer__gradient">新申裝專線 0958-257-954</div>
+              <div className="small footer__gradient">24H客服專線 0809-006899</div>
             </div>
             <div className="footer__links">
               <div className="inline-links footer__links-row">
