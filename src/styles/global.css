@@ -1256,6 +1256,19 @@ a:hover { text-decoration: none; }
   gap: 6px;
 }
 
+.footer__brand {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer__brand-logo {
+  width: 48px;
+  height: auto;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
+}
+
 .footer__links-row {
   display: flex;
   flex-wrap: wrap;
