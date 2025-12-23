@@ -88,23 +88,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <footer className="footer">
-          <div className="container footer__row">
-            <div className="footer__brand footer__brand--stacked">
-              <img src="/logo-kbro.svg" alt="凱擘 kbro" className="footer__brand-logo" loading="lazy" />
-              <Link href="/" className="footer__brand-link">
-                <strong className="footer__gradient">{(SITE as any).footerName ?? SITE.name}</strong>
-              </Link>
-              <div className="small footer__gradient">新申裝專線 0958-257-954</div>
-              <div className="small footer__gradient">24H客服專線 0809-006899</div>
-            </div>
-            <div className="footer__links">
-              <div className="inline-links footer__links-row">
-                <a href={SITE.privacyPolicyUrl} rel="noopener" target="_blank">
-                  隱私權政策
-                </a>
-                <a href={SITE.personalDataProtectionUrl} rel="noopener" target="_blank">
-                  個人資料保護法
-                </a>
+          <div className="container footer__row footer__row--stacked">
+            <div className="footer__lines">
+              <div className="footer__line">
+                凱擘大寬頻 {(SITE as any).footerName ?? SITE.name} 新申辦專線
+              </div>
+              <div className="footer__line footer__line--phone">{SITE.phoneDisplay}</div>
+              <div className="footer__line">
+                24小時官方客服專線：{SITE.officialSupportDisplay}
+              </div>
+              <div className="footer__links footer__links--center">
+                <div className="inline-links footer__links-row">
+                  <a href={SITE.privacyPolicyUrl} rel="noopener" target="_blank">
+                    隱私權政策
+                  </a>
+                  <a href={SITE.personalDataProtectionUrl} rel="noopener" target="_blank">
+                    個人資料保護法
+                  </a>
+                </div>
               </div>
             </div>
           </div>
