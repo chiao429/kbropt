@@ -9,7 +9,7 @@ export const SITE = {
   phoneTel: 'tel:0958257954',
   lineUrl: 'https://line.me/ti/p/-sdLm9vh1i',
   officialSupportDisplay: '0809-006-899',
-  privacyPolicyUrl: 'https://www.kbro.com.tw/K01/about-news-detail_6_0_39_239066.html',
+  privacyPolicyUrl: 'https://www.kbro.com.tw/K01/content_8_3460_3461.html',
   personalDataProtectionUrl: 'https://www.kbro.com.tw/K01/about-news-detail_6_0_39_239066.html'
 };
 

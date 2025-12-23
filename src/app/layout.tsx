@@ -91,19 +91,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="container footer__row footer__row--stacked">
             <div className="footer__lines">
               <div className="footer__line">
-                凱擘大寬頻 {(SITE as any).footerName ?? SITE.name} 新申辦專線
+                凱擘大寬頻 {(SITE as any).footerName ?? SITE.name} 新申辦專線 {SITE.phoneDisplay}
               </div>
-              <div className="footer__line footer__line--phone">{SITE.phoneDisplay}</div>
-              <div className="footer__line">
+              <div className="footer__line footer__line--phone">
                 24小時官方客服專線：{SITE.officialSupportDisplay}
               </div>
               <div className="footer__links footer__links--center">
                 <div className="inline-links footer__links-row">
-                  <a href={SITE.privacyPolicyUrl} rel="noopener" target="_blank">
-                    隱私權政策
-                  </a>
                   <a href={SITE.personalDataProtectionUrl} rel="noopener" target="_blank">
                     個人資料保護法
+                  </a>
+                  <a href={SITE.privacyPolicyUrl} rel="noopener" target="_blank">
+                    隱私權政策
                   </a>
                 </div>
               </div>
