@@ -26,7 +26,11 @@ export default function ContactCTA() {
               onClick={(e) => {
                 e.preventDefault();
                 if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
-                  (window as any).gtag_report_conversion(SITE.lineUrl);
+                  console.log('Sending conversion event, then opening LINE...');
+                  (window as any).gtag_report_conversion();
+                  setTimeout(() => {
+                    window.open(SITE.lineUrl, '_blank');
+                  }, 300);
                 } else {
                   console.log('gtag_report_conversion not available, opening LINE directly');
                   window.open(SITE.lineUrl, '_blank');
@@ -41,7 +45,11 @@ export default function ContactCTA() {
               onClick={(e) => {
                 e.preventDefault();
                 if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
-                  (window as any).gtag_report_conversion(SITE.phoneTel);
+                  console.log('Sending conversion event, then redirecting...');
+                  (window as any).gtag_report_conversion();
+                  setTimeout(() => {
+                    window.location.href = SITE.phoneTel;
+                  }, 300);
                 } else {
                   console.log('gtag_report_conversion not available, redirecting directly');
                   window.location.href = SITE.phoneTel;

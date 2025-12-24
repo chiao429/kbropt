@@ -124,31 +124,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* 轉換追蹤事件函數 */}
         <Script id="conversion-tracking" strategy="afterInteractive">
           {`
-            function gtag_report_conversion(url) {
-              console.log('gtag_report_conversion called with URL:', url);
+            function gtag_report_conversion() {
+              console.log('gtag_report_conversion called');
               
               if (typeof gtag === 'undefined') {
                 console.error('gtag is not defined');
-                if (typeof(url) != 'undefined') {
-                  window.location = url;
-                }
                 return false;
               }
               
-              var callback = function () {
-                console.log('Conversion callback executed');
-                if (typeof(url) != 'undefined') {
-                  window.location = url;
-                }
-              };
-              
               console.log('Sending conversion event to Google Ads');
               gtag('event', 'conversion', {
-                'send_to': 'AW-10969580722/qM0ICPqP7YoYELKJ2u4o',
-                'event_callback': callback
+                'send_to': 'AW-10969580722/qM0ICPqP7YoYELKJ2u4o'
               });
               
-              return false;
+              return true;
             }
             
             // 檢查 gtag 是否已載入
