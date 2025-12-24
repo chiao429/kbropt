@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { SITE } from '../lib/site';
 import Banner from '../components/Banner';
 import ServiceAreaTable from '../components/ServiceAreaTable';
+import HeroButtons from '../components/HeroButtons';
 
 export const metadata: Metadata = {
   title: SITE.name,
@@ -20,14 +21,7 @@ export default function HomePage() {
           <div className="reveal" style={{ ['--d' as any]: '0ms' }}>
             <h1 className="h-title">光纖上網</h1>
 
-            <div style={{ marginTop: 48, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <a className="btn btn-primary" href={SITE.phoneTel}>
-                立即撥打 {SITE.phoneDisplay} 陳專員
-              </a>
-              <a className="btn" href={SITE.lineUrl} rel="noopener" target="_blank">
-                加入LINE作諮詢
-              </a>
-            </div>
+            <HeroButtons />
 
             <p className="small" style={{ marginTop: 12 }}>
               專人一對一諮詢服務，不用排隊等待客服

@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import '../styles/global.css';
 import ClientInteractions from '../components/ClientInteractions';
 import { NAV, SITE } from '../lib/site';
 import ContactCTA from '../components/ContactCTA';
+import FloatingActionButtons from '../components/FloatingActionButtons';
 
 export const metadata: Metadata = {
   title: SITE.name,
@@ -74,18 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ContactCTA />
         </main>
 
-        <div className="fab" aria-label="快速聯絡">
-          <button className="to-top fab-btn fab-btn-top" type="button" aria-label="回到最上">
-            ↑
-          </button>
-          <div className="fab-label" aria-hidden="true">聯繫專員</div>
-          <a className="fab-btn" href={SITE.lineUrl} rel="noopener" target="_blank" aria-label="LINE 諮詢">
-            <img className="fab-icon" src="/icon/line.png" alt="LINE" loading="lazy" />
-          </a>
-          <a className="fab-btn" href={SITE.phoneTel} aria-label="立即撥打">
-            <img className="fab-icon" src="/icon/call.png" alt="電話" loading="lazy" />
-          </a>
-        </div>
+        <FloatingActionButtons />
 
         <footer className="footer">
           <div className="container footer__row footer__row--stacked">
@@ -115,6 +106,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <ClientInteractions />
+        
+        {/* Google Ads 轉換追蹤代碼 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-10969580722"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-10969580722');
+          `}
+        </Script>
+        
+        {/* 轉換追蹤事件函數 */}
+        <Script id="conversion-tracking" strategy="afterInteractive">
+          {`
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                'send_to': 'AW-10969580722/qM0ICPqP7YoYELKJ2u4o',
+                'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
       </body>
     </html>
   );

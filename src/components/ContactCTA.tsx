@@ -18,10 +18,28 @@ export default function ContactCTA() {
             合適、最實際的網路方案建議，讓選擇更安心、使用更順暢。
           </p>
           <div className="contact-cta__actions">
-            <a className="btn contact-cta__btn primary" href={SITE.lineUrl} target="_blank" rel="noopener">
+            <a 
+              className="btn contact-cta__btn primary" 
+              href={SITE.lineUrl} 
+              target="_blank" 
+              rel="noopener"
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
+                  (window as any).gtag_report_conversion(SITE.lineUrl);
+                }
+              }}
+            >
               線上諮詢
             </a>
-            <a className="btn contact-cta__btn" href={SITE.phoneTel}>
+            <a 
+              className="btn contact-cta__btn" 
+              href={SITE.phoneTel}
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
+                  (window as any).gtag_report_conversion(SITE.phoneTel);
+                }
+              }}
+            >
               電話專線
             </a>
           </div>
