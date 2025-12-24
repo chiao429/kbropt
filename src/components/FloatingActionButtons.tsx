@@ -16,8 +16,12 @@ export default function FloatingActionButtons() {
         target="_blank" 
         aria-label="LINE 諮詢"
         onClick={(e) => {
+          e.preventDefault();
           if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
-            return (window as any).gtag_report_conversion(SITE.lineUrl);
+            (window as any).gtag_report_conversion(SITE.lineUrl);
+          } else {
+            console.log('gtag_report_conversion not available, opening LINE directly');
+            window.open(SITE.lineUrl, '_blank');
           }
         }}
       >
@@ -28,8 +32,12 @@ export default function FloatingActionButtons() {
         href={SITE.phoneTel} 
         aria-label="立即撥打"
         onClick={(e) => {
+          e.preventDefault();
           if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
-            return (window as any).gtag_report_conversion(SITE.phoneTel);
+            (window as any).gtag_report_conversion(SITE.phoneTel);
+          } else {
+            console.log('gtag_report_conversion not available, redirecting directly');
+            window.location.href = SITE.phoneTel;
           }
         }}
       >

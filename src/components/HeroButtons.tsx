@@ -8,9 +8,13 @@ export default function HeroButtons() {
       <a 
         className="btn btn-primary" 
         href={SITE.phoneTel}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
             (window as any).gtag_report_conversion(SITE.phoneTel);
+          } else {
+            console.log('gtag_report_conversion not available, redirecting directly');
+            window.location.href = SITE.phoneTel;
           }
         }}
       >
@@ -21,9 +25,13 @@ export default function HeroButtons() {
         href={SITE.lineUrl} 
         rel="noopener" 
         target="_blank"
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
             (window as any).gtag_report_conversion(SITE.lineUrl);
+          } else {
+            console.log('gtag_report_conversion not available, opening LINE directly');
+            window.open(SITE.lineUrl, '_blank');
           }
         }}
       >

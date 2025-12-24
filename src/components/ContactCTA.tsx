@@ -23,9 +23,13 @@ export default function ContactCTA() {
               href={SITE.lineUrl} 
               target="_blank" 
               rel="noopener"
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
                   (window as any).gtag_report_conversion(SITE.lineUrl);
+                } else {
+                  console.log('gtag_report_conversion not available, opening LINE directly');
+                  window.open(SITE.lineUrl, '_blank');
                 }
               }}
             >
@@ -34,9 +38,13 @@ export default function ContactCTA() {
             <a 
               className="btn contact-cta__btn" 
               href={SITE.phoneTel}
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
                   (window as any).gtag_report_conversion(SITE.phoneTel);
+                } else {
+                  console.log('gtag_report_conversion not available, redirecting directly');
+                  window.location.href = SITE.phoneTel;
                 }
               }}
             >
