@@ -124,15 +124,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* 轉換追蹤事件函數 */}
         <Script id="conversion-tracking" strategy="afterInteractive">
           {`
-            function gtag_report_conversion() {
-              console.log('gtag_report_conversion called');
+            // 電話轉換追蹤函數
+            function gtag_report_conversion_phone() {
+              console.log('gtag_report_conversion_phone called');
               
               if (typeof gtag === 'undefined') {
                 console.error('gtag is not defined');
                 return false;
               }
               
-              console.log('Sending conversion event to Google Ads');
+              console.log('Sending phone conversion event to Google Ads');
               gtag('event', 'conversion', {
                 'send_to': 'AW-10969580722/qM0ICPqP7YoYELKJ2u4o'
               });
@@ -140,10 +141,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               return true;
             }
             
+            // LINE 轉換追蹤函數
+            function gtag_report_conversion_line(url) {
+              console.log('gtag_report_conversion_line called with URL:', url);
+              
+              if (typeof gtag === 'undefined') {
+                console.error('gtag is not defined');
+                return false;
+              }
+              
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.open(url, '_blank');
+                }
+              };
+              
+              console.log('Sending LINE conversion event to Google Ads');
+              gtag('event', 'conversion', {
+                'send_to': 'AW-10969580722/zCMUCP-O7YoYELKJ2u4o',
+                'event_callback': callback
+              });
+              
+              return false;
+            }
+            
+            // 向後兼容的通用函數（使用電話轉換）
+            function gtag_report_conversion() {
+              return gtag_report_conversion_phone();
+            }
+            
             // 檢查 gtag 是否已載入
             window.addEventListener('load', function() {
               console.log('Window loaded. gtag available:', typeof gtag !== 'undefined');
-              console.log('gtag_report_conversion available:', typeof gtag_report_conversion !== 'undefined');
+              console.log('gtag_report_conversion_phone available:', typeof gtag_report_conversion_phone !== 'undefined');
+              console.log('gtag_report_conversion_line available:', typeof gtag_report_conversion_line !== 'undefined');
             });
           `}
         </Script>

@@ -17,14 +17,11 @@ export default function FloatingActionButtons() {
         aria-label="LINE 諮詢"
         onClick={(e) => {
           e.preventDefault();
-          if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
-            console.log('Sending conversion event, then opening LINE...');
-            (window as any).gtag_report_conversion();
-            setTimeout(() => {
-              window.open(SITE.lineUrl, '_blank');
-            }, 300);
+          if (typeof window !== 'undefined' && (window as any).gtag_report_conversion_line) {
+            console.log('Sending LINE conversion event...');
+            (window as any).gtag_report_conversion_line(SITE.lineUrl);
           } else {
-            console.log('gtag_report_conversion not available, opening LINE directly');
+            console.log('gtag_report_conversion_line not available, opening LINE directly');
             window.open(SITE.lineUrl, '_blank');
           }
         }}
@@ -37,14 +34,14 @@ export default function FloatingActionButtons() {
         aria-label="立即撥打"
         onClick={(e) => {
           e.preventDefault();
-          if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
-            console.log('Sending conversion event, then redirecting...');
-            (window as any).gtag_report_conversion();
+          if (typeof window !== 'undefined' && (window as any).gtag_report_conversion_phone) {
+            console.log('Sending phone conversion event, then redirecting...');
+            (window as any).gtag_report_conversion_phone();
             setTimeout(() => {
               window.location.href = SITE.phoneTel;
             }, 300);
           } else {
-            console.log('gtag_report_conversion not available, redirecting directly');
+            console.log('gtag_report_conversion_phone not available, redirecting directly');
             window.location.href = SITE.phoneTel;
           }
         }}
