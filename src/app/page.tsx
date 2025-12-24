@@ -4,6 +4,7 @@ import { SITE } from '../lib/site';
 import Banner from '../components/Banner';
 import ServiceAreaTable from '../components/ServiceAreaTable';
 import HeroButtons from '../components/HeroButtons';
+import ApplyButton from '../components/ApplyButton';
 
 export const metadata: Metadata = {
   title: SITE.name,
@@ -107,11 +108,7 @@ export default function HomePage() {
 
         <section className="section" aria-label="新申辦">
           <div className="reveal">
-            <div className="home-actions">
-              <a className="btn btn-lg" href="/apply">
-                新申辦
-              </a>
-            </div>
+            <ApplyButton />
           </div>
         </section>
       </div>
