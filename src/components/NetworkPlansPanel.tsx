@@ -79,7 +79,7 @@ export default function NetworkPlansPanel({ className, animate = false, delayMs 
       </div>
 
       <div className="plans-bonus">
-        <img className="plans-bonus-img" src="/images/好禮多選.png" alt="好禮多選" loading="lazy" />
+        <img className="plans-bonus-img" src="/images/product.jpg" alt="產品展示" loading="lazy" />
       </div>
 
       <div className="plans-tip" style={{ marginTop: 18 }}>
@@ -87,7 +87,7 @@ export default function NetworkPlansPanel({ className, animate = false, delayMs 
       </div>
 
       <div className="plans-media">
-        <img className="plans-media-img" src="/images/Mesh Wi-Fi 6.jpg" alt="Mesh Wi-Fi 6" loading="lazy" />
+        <img className="plans-media-img" src="/images/wifi.jpg" alt="Wi‑Fi 示意圖" loading="lazy" />
       </div>
     </section>
   );

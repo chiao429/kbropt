@@ -840,9 +840,10 @@ a:hover { text-decoration: none; }
 }
 
 .plans-media-img {
-  width: 100%;
+  width: 75%;
   height: auto;
   display: block;
+  margin: 0 auto;
   border-radius: 16px;
   border: 1px solid var(--border);
 }
@@ -854,7 +855,7 @@ a:hover { text-decoration: none; }
 }
 
 .plans-bonus-img {
-  width: 100%;
+  width: 125%;
   max-width: 760px;
   height: auto;
   display: block;

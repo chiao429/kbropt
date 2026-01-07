@@ -26,12 +26,6 @@ export default function Banner() {
         desktopSrc: '/banner/banner_1.jpg',
         alt: '光纖上網服務',
         overlay: { title: '光纖上網', text: '新申辦相關諮詢，由專員協助評估方案並說明申辦流程' }
-      },
-      {
-        type: 'image',
-        desktopSrc: '/banner/banner_2.jpg',
-        alt: '優質服務體驗',
-        overlay: { title: '專人服務體驗', text: '不用排隊等客服，由專員協助說明申辦流程與相關事項，提供清楚、即時的諮詢協助' }
       }
     ],
     []
