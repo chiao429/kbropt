@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
 import { SITE } from '../lib/site';
-import Banner from '../components/Banner';
 import ServiceAreaTable from '../components/ServiceAreaTable';
 import HeroButtons from '../components/HeroButtons';
 import ApplyButton from '../components/ApplyButton';
@@ -15,11 +14,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Banner />
-
       <div className="container">
         <section className="hero">
-          <div className="reveal" style={{ ['--d' as any]: '0ms' }}>
+          <div className="hero-grid" style={{ ['--d' as any]: '0ms' }}>
             <h1 className="h-title">光纖上網</h1>
 
             <HeroButtons />
@@ -89,6 +86,12 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="section" aria-label="優惠展示">
+          <div className="reveal" style={{ textAlign: 'center' }}>
+            <img src="/images/product.jpg" alt="優惠展示" className="apply-area-img" loading="lazy" />
           </div>
         </section>
 
